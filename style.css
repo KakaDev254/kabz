@@ -224,6 +224,17 @@ body {
   font-size: 0.95rem;
   margin-bottom: 8px;
 }
+.branch-error-text {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #ff3b3b !important;
+  font-weight: 500;
+}
+
+.branch-error {
+  border: 2px solid #ff3b3b !important;
+  box-shadow: 0 0 0 4px rgba(255, 59, 59, 0.25);
+}
 
 /* ===============================
    ORDER NOTE

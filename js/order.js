@@ -72,12 +72,33 @@ function decreaseQty(item) {
 // OPEN ORDER SUMMARY MODAL
 // ==============================
 function openModal() {
-  const branch = document.getElementById("branchSelect").value;
+  const branchSelect = document.getElementById("branchSelect");
+  const branchError = document.getElementById("branchError");
+  const branch = branchSelect.value;
 
   if (!branch) {
-    alert("Please select a branch");
+    // Scroll to branch selector
+    branchSelect.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+
+    // Highlight select
+    branchSelect.classList.add("branch-error");
+
+    // Show error text
+    branchError.classList.remove("hidden");
+
+    // Auto-remove highlight
+    setTimeout(() => {
+      branchSelect.classList.remove("branch-error");
+    }, 1500);
+
     return;
   }
+
+  // Clear error if branch is selected
+  branchError.classList.add("hidden");
 
   if (Object.keys(cart).length === 0) {
     alert("Your cart is empty");
